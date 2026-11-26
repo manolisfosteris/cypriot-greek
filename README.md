@@ -64,7 +64,7 @@ normalization below. The numbers are not directly comparable. Details: PROJECT_L
 ## Quick start
 
 ```bash
-git clone https://github.com/TODO/cypriot-greek.git && cd cypriot-greek
+git clone https://github.com/manolisfosteris/cypriot-greek.git && cd cypriot-greek
 python3 -m venv .venv && . .venv/bin/activate
 pip install torch            # pick the CUDA or CPU build for your machine from pytorch.org
 pip install -r requirements.txt
