@@ -45,7 +45,7 @@ half of the increase is the model writing Standard Greek speech in Cypriot forms
 Greek is the best, at **24.7% WER** (zero-shot Rumble: 55.7%). Rumble's dev lead over whisper-medium did not hold on
 test: the fine-tuned models are statistically tied.
 
-**Next.** The Standard Greek data was a third of the training clips but only about 10% of the audio time. Adding
+**Future Work.** The Standard Greek data was a third of the training clips but only about 10% of the audio time. Adding
 more of it is the obvious next step to close the remaining gap on Standard Greek.
 
 All numbers, decisions and dead ends are in the experiment log, [docs/PROJECT_LOG.md](docs/PROJECT_LOG.md).
