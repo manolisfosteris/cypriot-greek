@@ -1,0 +1,15 @@
+# torch is intentionally not listed: Colab ships a CUDA build, and locally you install the
+# CPU build with: pip install torch --index-url https://download.pytorch.org/whl/cpu
+transformers==5.22.0
+accelerate==1.15.0
+jiwer==4.0.0
+soundfile==0.14.0
+scipy==1.18.1
+numpy>=2.0
+PyYAML==6.0.3
+pytest==9.2.0
+peft==0.21.2  # LoRA fine-tuning (cyasr/train.py, mode: lora)
+trackio==0.45.1  # experiment tracking dashboard (cyasr/train.py, tracker: trackio)
+# Forced alignment (cyasr/segment.py). Installed from GitHub because the PyPI package of the
+# same name is a different fork; pinned to the commit that was tested.
+ctc-forced-aligner @ git+https://github.com/MahmoudAshraf97/ctc-forced-aligner.git@64293cc6d711e57666c4a8b098e9fd93b381fd88

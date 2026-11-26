@@ -1,0 +1,20 @@
+# Zero-shot Reson8/Rumble-2-Flash (a fine-tune of Qwen3-ASR-0.6B), run through the same qwen3_asr
+# backend as configs/baseline_qwen3-asr-0.6b.yaml: whole clips in one pass, greedy, Greek forced.
+# Product defaults (digits, fillers dropped, verbatim). Our references write numbers as words and keep
+# fillers, so see baseline_rumble-2-flash_matched.yaml for the run with options matched to them.
+# Usage: python -m cyasr.run_baseline --config configs/baseline_rumble-2-flash.yaml
+run_name: baseline_rumble-2-flash
+backend: qwen3_asr
+model: Reson8/Rumble-2-Flash
+revision: 95bd5f9133a2398e5e48a98c089fe48e122bde97   # pinned commit (Apache-2.0)
+template_kwargs: {}      # chat template defaults: digits true, filler false, verbatim true
+splits: [dev]            # test stays untouched until the final evaluation
+language: el
+decoding: greedy
+max_new_tokens: 4096
+dtype: auto
+batch_size: 1            # deterministic: in bf16, batch size changes the output (notebook 07, PROJECT_LOG 10)
+seed: 42
+max_samples: null
+output_dir: runs
+mlflow: false

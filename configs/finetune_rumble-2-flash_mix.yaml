@@ -1,0 +1,36 @@
+# Ablation of finetune_rumble-2-flash_mix_tag.yaml: same Standard Greek rehearsal, NO dialect tag (PROJECT_LOG section 17).
+# Same recipe as finetune_rumble-2-flash.yaml (section 11), plus:
+# - 410 Common Voice Greek clips mixed into the 820 Cypriot pieces (1/3 of each batch on average), no tag;
+# - dev checks every 250 steps on 150 evenly spaced Cypriot dev pieces + 100 Common Voice Greek dev clips
+#   (best checkpoint by Cypriot WER), instead of all 407 pieces every 100 steps (dev checks were 110 of 144 min).
+# Usage: python -m cyasr.train --config configs/finetune_rumble-2-flash_mix.yaml
+run_name: rumble-2-flash_mix
+backend: qwen3_asr
+model: Reson8/Rumble-2-Flash
+revision: 95bd5f9133a2398e5e48a98c089fe48e122bde97
+language: el
+template_kwargs: {digits: false, filler: true, verbatim: true}
+dialect_prompt: null      # ablation: same mix, no tag
+smg_segments_dir: data/segments_cv_el
+smg_max_samples: null    # all 410 prepared clips
+smg_dev_samples: 100
+segments_dir: data/segments
+mode: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+learning_rate: 1.0e-4
+warmup_steps: 50
+max_steps: 1000
+batch_size: 4
+grad_accum: 4
+eval_batch_size: 8
+max_new_tokens: 512
+eval_steps: 250
+eval_subset: 150
+early_stopping_patience: 3
+seed: 42
+spec_augment: true
+mask_time_prob: 0.05
+mask_feature_prob: 0.05
+gradient_checkpointing: false

@@ -1,0 +1,325 @@
+{
+  "n_utterances": 371,
+  "hours": 2.88811,
+  "empty_hypotheses": 0,
+  "hallucinations": 0,
+  "levels": {
+    "raw": {
+      "wer": 0.613916015625,
+      "cer": 0.27920032123056016,
+      "word_errors": 12573,
+      "ref_words": 20480,
+      "char_errors": 36157,
+      "ref_chars": 129502
+    },
+    "basic": {
+      "wer": 0.5567722781914635,
+      "cer": 0.2481704552813937,
+      "word_errors": 11440,
+      "ref_words": 20547,
+      "char_errors": 30656,
+      "ref_chars": 123528
+    },
+    "nofill": {
+      "wer": 0.5451439481485203,
+      "cer": 0.23591168878295796,
+      "word_errors": 10850,
+      "ref_words": 19903,
+      "char_errors": 28605,
+      "ref_chars": 121253
+    },
+    "nodiac": {
+      "wer": 0.5355976485956891,
+      "cer": 0.20772519287932933,
+      "word_errors": 10660,
+      "ref_words": 19903,
+      "char_errors": 24878,
+      "ref_chars": 119764
+    },
+    "phonetic": {
+      "wer": 0.5055016831633422,
+      "cer": 0.18625075978470565,
+      "word_errors": 10061,
+      "ref_words": 19903,
+      "char_errors": 21143,
+      "ref_chars": 113519
+    }
+  },
+  "per_speaker": {
+    "5ca29b717c122e86f152ed3e71f6473d": {
+      "n": 145,
+      "levels": {
+        "raw": {
+          "wer": 0.5859503588122984,
+          "cer": 0.2634650797448996,
+          "word_errors": 8900,
+          "ref_words": 15189,
+          "char_errors": 25324,
+          "ref_chars": 96119
+        },
+        "basic": {
+          "wer": 0.5260878125615278,
+          "cer": 0.2300040401393302,
+          "word_errors": 8016,
+          "ref_words": 15237,
+          "char_errors": 21064,
+          "ref_chars": 91581
+        },
+        "nofill": {
+          "wer": 0.5115520521880946,
+          "cer": 0.21471113093910327,
+          "word_errors": 7528,
+          "ref_words": 14716,
+          "char_errors": 19251,
+          "ref_chars": 89660
+        },
+        "nodiac": {
+          "wer": 0.502854036422941,
+          "cer": 0.18900669579847115,
+          "word_errors": 7400,
+          "ref_words": 14716,
+          "char_errors": 16739,
+          "ref_chars": 88563
+        },
+        "phonetic": {
+          "wer": 0.46874150584397933,
+          "cer": 0.16877279988555352,
+          "word_errors": 6898,
+          "ref_words": 14716,
+          "char_errors": 14157,
+          "ref_chars": 83882
+        }
+      }
+    },
+    "d7725a23ebb5160dafb1d2d2953cc71f": {
+      "n": 146,
+      "levels": {
+        "raw": {
+          "wer": 0.8086228287841191,
+          "cer": 0.417683834474546,
+          "word_errors": 2607,
+          "ref_words": 3224,
+          "char_errors": 8418,
+          "ref_chars": 20154
+        },
+        "basic": {
+          "wer": 0.765050941648657,
+          "cer": 0.3952202045501983,
+          "word_errors": 2478,
+          "ref_words": 3239,
+          "char_errors": 7574,
+          "ref_chars": 19164
+        },
+        "nofill": {
+          "wer": 0.7633154743145288,
+          "cer": 0.3935116915946914,
+          "word_errors": 2422,
+          "ref_words": 3173,
+          "char_errors": 7472,
+          "ref_chars": 18988
+        },
+        "nodiac": {
+          "wer": 0.7500787897888433,
+          "cer": 0.3488881761813128,
+          "word_errors": 2380,
+          "ref_words": 3173,
+          "char_errors": 6527,
+          "ref_chars": 18708
+        },
+        "phonetic": {
+          "wer": 0.7358966277970375,
+          "cer": 0.3190010735069778,
+          "word_errors": 2335,
+          "ref_words": 3173,
+          "char_errors": 5646,
+          "ref_chars": 17699
+        }
+      }
+    },
+    "ef5c3c9d663934774665b6236aa9397b": {
+      "n": 80,
+      "levels": {
+        "raw": {
+          "wer": 0.5157232704402516,
+          "cer": 0.18255348098873686,
+          "word_errors": 1066,
+          "ref_words": 2067,
+          "char_errors": 2415,
+          "ref_chars": 13229
+        },
+        "basic": {
+          "wer": 0.45678416224046353,
+          "cer": 0.1578659156692482,
+          "word_errors": 946,
+          "ref_words": 2071,
+          "char_errors": 2018,
+          "ref_chars": 12783
+        },
+        "nofill": {
+          "wer": 0.4468718967229394,
+          "cer": 0.14930583101943673,
+          "word_errors": 900,
+          "ref_words": 2014,
+          "char_errors": 1882,
+          "ref_chars": 12605
+        },
+        "nodiac": {
+          "wer": 0.4369414101290963,
+          "cer": 0.12903225806451613,
+          "word_errors": 880,
+          "ref_words": 2014,
+          "char_errors": 1612,
+          "ref_chars": 12493
+        },
+        "phonetic": {
+          "wer": 0.41112214498510424,
+          "cer": 0.11224660747193835,
+          "word_errors": 828,
+          "ref_words": 2014,
+          "char_errors": 1340,
+          "ref_chars": 11938
+        }
+      }
+    }
+  },
+  "by_duration": {
+    "<10s": {
+      "n": 69,
+      "levels": {
+        "raw": {
+          "wer": 0.7180851063829787,
+          "cer": 0.3352788586251621,
+          "word_errors": 540,
+          "ref_words": 752,
+          "char_errors": 1551,
+          "ref_chars": 4626
+        },
+        "basic": {
+          "wer": 0.6767810026385225,
+          "cer": 0.30551145384440914,
+          "word_errors": 513,
+          "ref_words": 758,
+          "char_errors": 1347,
+          "ref_chars": 4409
+        },
+        "nofill": {
+          "wer": 0.6748299319727891,
+          "cer": 0.30121867095884114,
+          "word_errors": 496,
+          "ref_words": 735,
+          "char_errors": 1310,
+          "ref_chars": 4349
+        },
+        "nodiac": {
+          "wer": 0.6612244897959184,
+          "cer": 0.261777674634486,
+          "word_errors": 486,
+          "ref_words": 735,
+          "char_errors": 1128,
+          "ref_chars": 4309
+        },
+        "phonetic": {
+          "wer": 0.6340136054421769,
+          "cer": 0.23279007540744345,
+          "word_errors": 466,
+          "ref_words": 735,
+          "char_errors": 957,
+          "ref_chars": 4111
+        }
+      }
+    },
+    "10-30s": {
+      "n": 187,
+      "levels": {
+        "raw": {
+          "wer": 0.6635220125786163,
+          "cer": 0.3140191093479354,
+          "word_errors": 3798,
+          "ref_words": 5724,
+          "char_errors": 11240,
+          "ref_chars": 35794
+        },
+        "basic": {
+          "wer": 0.6158133054684779,
+          "cer": 0.2908746355685131,
+          "word_errors": 3536,
+          "ref_words": 5742,
+          "char_errors": 9977,
+          "ref_chars": 34300
+        },
+        "nofill": {
+          "wer": 0.6098558975271304,
+          "cer": 0.2857942658455373,
+          "word_errors": 3428,
+          "ref_words": 5621,
+          "char_errors": 9699,
+          "ref_chars": 33937
+        },
+        "nodiac": {
+          "wer": 0.5979363102650774,
+          "cer": 0.2510972442002807,
+          "word_errors": 3361,
+          "ref_words": 5621,
+          "char_errors": 8410,
+          "ref_chars": 33493
+        },
+        "phonetic": {
+          "wer": 0.5751645614659313,
+          "cer": 0.2259659287716094,
+          "word_errors": 3233,
+          "ref_words": 5621,
+          "char_errors": 7176,
+          "ref_chars": 31757
+        }
+      }
+    },
+    ">30s": {
+      "n": 115,
+      "levels": {
+        "raw": {
+          "wer": 0.5880462724935732,
+          "cer": 0.2622976583372623,
+          "word_errors": 8235,
+          "ref_words": 14004,
+          "char_errors": 23366,
+          "ref_chars": 89082
+        },
+        "basic": {
+          "wer": 0.5261621698583328,
+          "cer": 0.22792063099069784,
+          "word_errors": 7391,
+          "ref_words": 14047,
+          "char_errors": 19332,
+          "ref_chars": 84819
+        },
+        "nofill": {
+          "wer": 0.5112571048940725,
+          "cer": 0.21208432268251232,
+          "word_errors": 6926,
+          "ref_words": 13547,
+          "char_errors": 17596,
+          "ref_chars": 82967
+        },
+        "nodiac": {
+          "wer": 0.5029157747102679,
+          "cer": 0.18715990336985433,
+          "word_errors": 6813,
+          "ref_words": 13547,
+          "char_errors": 15340,
+          "ref_chars": 81962
+        },
+        "phonetic": {
+          "wer": 0.46962427105632243,
+          "cer": 0.16754452614905152,
+          "word_errors": 6362,
+          "ref_words": 13547,
+          "char_errors": 13010,
+          "ref_chars": 77651
+        }
+      }
+    }
+  },
+  "model": "Reson8/Rumble-2-Flash",
+  "split": "test",
+  "hit_max_tokens": 0
+}

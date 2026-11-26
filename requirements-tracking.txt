@@ -1,0 +1,2 @@
+# Optional: experiment tracking (set mlflow: true in a config). Not needed on Colab.
+mlflow==3.17.2

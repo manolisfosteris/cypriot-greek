@@ -1,0 +1,31 @@
+# LoRA fine-tuning of base Qwen3-ASR-0.6B with the recipe of finetune_rumble-2-flash.yaml. Rumble-2-Flash is a
+# compressed version of this model: same audio encoder (18 layers), but a 14-layer text decoder instead of 28 and a
+# pruned vocabulary (99.6k vs 152k tokens; both need 5.30 tokens per Greek word on our corpus, so targets are equally
+# long). The comparison asks whether the half-depth decoder costs accuracy once both are fine-tuned.
+# Qwen's chat template has no control tokens, so the prompt is the plain one used for the zero-shot run.
+# Usage: python -m cyasr.train --config configs/finetune_qwen3-asr-0.6b.yaml
+run_name: qwen3-asr-0.6b_lora
+backend: qwen3_asr
+model: Qwen/Qwen3-ASR-0.6B-hf
+revision: 7f1569a48a89f3e3f4dc3a5c9d28bddd903bc76c   # pinned commit (Apache-2.0), as for the zero-shot run
+language: el
+template_kwargs: {}
+segments_dir: data/segments
+mode: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+learning_rate: 1.0e-4
+warmup_steps: 50
+max_steps: 1000
+batch_size: 2            # the 28-layer decoder peaked at 19.5/23 GB with batch 4 in the smoke test
+grad_accum: 8            # 2 x 8 = effective batch 16, as for Rumble and Whisper
+eval_batch_size: 4
+max_new_tokens: 512
+eval_steps: 100          # same as Rumble, so checkpoint selection and early stopping are identical
+early_stopping_patience: 3
+seed: 42
+spec_augment: true
+mask_time_prob: 0.05
+mask_feature_prob: 0.05
+gradient_checkpointing: false

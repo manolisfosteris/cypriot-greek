@@ -1,0 +1,37 @@
+# Environments and caches
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data (download it yourself, see README) and large bundles
+data/
+*.zip
+*.tar.gz
+*.pkl
+
+# Model weights and checkpoints (published on the Hugging Face Hub instead)
+runs/**/best/
+runs/**/checkpoints/
+*.safetensors
+*.bin
+*.pt
+
+# Local tracking stores
+mlruns/
+mlflow.db
+trackio/
+
+# Stale duplicate from an early smoke test
+runs/runs/
+
+# Not part of the project / private working notes
+Course_Material/
+test_file.ipynb
+skills-lock.json
+.agents/
+.claude/
+CLAUDE.md
+PLAN.md
+docs/BLOG_NOTES.md
+docs/RELEASE_PLAN.md

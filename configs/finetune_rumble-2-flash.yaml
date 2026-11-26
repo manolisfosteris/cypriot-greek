@@ -1,0 +1,31 @@
+# LoRA fine-tuning of Reson8/Rumble-2-Flash (a Qwen3-ASR-0.6B fine-tune, 509M parameters) on the segmented
+# training pieces. Same recipe as whisper-small/medium (LoRA r32/alpha64, LR 1e-4, warmup 50, max 1000 steps,
+# effective batch 16, dev WER every 100 steps, patience 3, seed 42, SpecAugment 0.05/0.05), so only the model
+# changes. Prompt = the matched inference prompt (Greek forced; numbers as words, fillers and repeats kept),
+# so training and evaluation (eval_rumble-2-flash_lora.yaml) see the same input.
+# Usage: python -m cyasr.train --config configs/finetune_rumble-2-flash.yaml
+run_name: rumble-2-flash_lora
+backend: qwen3_asr
+model: Reson8/Rumble-2-Flash
+revision: 95bd5f9133a2398e5e48a98c089fe48e122bde97   # pinned commit (Apache-2.0)
+language: el
+template_kwargs: {digits: false, filler: true, verbatim: true}
+segments_dir: data/segments
+mode: lora               # or: full, frozen_encoder (audio encoder frozen)
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+learning_rate: 1.0e-4
+warmup_steps: 50
+max_steps: 1000
+batch_size: 4            # batch 8 peaked at 20.4/23 GB on an L4 in the smoke test: too little margin
+grad_accum: 4            # 4 x 4 = effective batch 16, as for Whisper
+eval_batch_size: 8
+max_new_tokens: 512      # dev pieces are <= 30 s (~300 tokens at most)
+eval_steps: 100
+early_stopping_patience: 3
+seed: 42
+spec_augment: true
+mask_time_prob: 0.05
+mask_feature_prob: 0.05
+gradient_checkpointing: false

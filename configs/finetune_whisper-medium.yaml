@@ -1,0 +1,21 @@
+run_name: whisper-medium_lora
+model: openai/whisper-medium
+segments_dir: data/segments
+mode: lora               # or: full, frozen_encoder
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+learning_rate: 1.0e-4    # same as small: only model and batch layout change
+warmup_steps: 50
+max_steps: 1000
+batch_size: 4            # medium has ~2.7x the activations of small; 8 would need ~25-30 GB
+grad_accum: 4            # 4 x 4 = effective batch 16, same as small
+eval_batch_size: 16      # generation with a 3x larger model; 16 is a safe start
+eval_steps: 100
+early_stopping_patience: 3
+seed: 42
+timestamp_fraction: 0.5
+spec_augment: true
+mask_time_prob: 0.05
+mask_feature_prob: 0.05
+gradient_checkpointing: false

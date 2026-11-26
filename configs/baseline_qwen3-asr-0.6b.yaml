@@ -1,0 +1,18 @@
+# Zero-shot Qwen3-ASR-0.6B, native transformers implementation (no qwen-asr package, which pins
+# transformers 4.57). Whole clips in one pass (limit 20 min; our longest is 271 s), greedy decoding,
+# Greek forced, like language: el for Whisper. Same scoring as the Whisper baselines.
+# Usage: python -m cyasr.run_baseline --config configs/baseline_qwen3-asr-0.6b.yaml
+run_name: baseline_qwen3-asr-0.6b
+backend: qwen3_asr
+model: Qwen/Qwen3-ASR-0.6B-hf
+revision: 7f1569a48a89f3e3f4dc3a5c9d28bddd903bc76c   # pinned commit (Apache-2.0)
+splits: [dev]            # test stays untouched until the final evaluation
+language: el             # null = automatic language detection
+decoding: greedy         # the only option for this backend
+max_new_tokens: 4096     # generous: Greek costs several tokens per word; hit_max_tokens counts cut-offs
+dtype: auto              # bfloat16 on L4/A100, float32 on T4/CPU
+batch_size: 1            # deterministic: in bf16, batch size changes the output (notebook 07, PROJECT_LOG 10)
+seed: 42
+max_samples: null        # set a number for smoke tests
+output_dir: runs
+mlflow: false

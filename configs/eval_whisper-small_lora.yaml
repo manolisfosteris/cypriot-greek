@@ -1,0 +1,15 @@
+# Fine-tuned whisper-small (LoRA, merged) evaluated exactly like the zero-shot baseline:
+# same script, full-length clips, long-form decoding, same scoring. Only `model` differs.
+# Usage: python -m cyasr.run_baseline --config configs/eval_whisper-small_lora.yaml --decoding greedy
+run_name: whisper-small_lora
+model: /content/drive/MyDrive/cyasr/runs/finetune_whisper-small_lora/best   # Colab path; elsewhere pass --model <folder>
+splits: [dev]            # test stays untouched until the final evaluation
+language: el
+task: transcribe
+num_beams: 1
+long_form: sequential
+batch_size: 8
+seed: 42
+max_samples: null
+output_dir: runs
+mlflow: false

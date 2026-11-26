@@ -1,0 +1,12 @@
+run_name: baseline_whisper-small
+model: openai/whisper-small
+splits: [dev, test]
+language: el
+task: transcribe
+num_beams: 1
+long_form: sequential   # or: chunked
+batch_size: 8
+seed: 42
+max_samples: null       # set a number for smoke tests
+output_dir: runs
+mlflow: false

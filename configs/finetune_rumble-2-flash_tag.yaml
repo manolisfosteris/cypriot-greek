@@ -1,0 +1,35 @@
+# Rumble-2-Flash LoRA with the dialect tag only (PROJECT_LOG section 17): no Standard Greek data.
+# Same recipe as finetune_rumble-2-flash.yaml (section 11), plus the tag "Cypriot Greek" as system context after
+# Rumble's control tokens on every Cypriot piece. Question: is the tag alone enough to keep untagged (Standard
+# Greek) behaviour, since Rumble was trained on untagged Greek before? Compare with the plain LoRA (no tag) and
+# with mix_tag (tag + Standard Greek rehearsal).
+# Dev checks every 250 steps on 150 evenly spaced Cypriot dev pieces (cheaper than all 407 every 100 steps).
+# Usage: python -m cyasr.train --config configs/finetune_rumble-2-flash_tag.yaml
+run_name: rumble-2-flash_tag
+backend: qwen3_asr
+model: Reson8/Rumble-2-Flash
+revision: 95bd5f9133a2398e5e48a98c089fe48e122bde97
+language: el
+template_kwargs: {digits: false, filler: true, verbatim: true}
+dialect_prompt: Cypriot Greek
+smg_segments_dir: null  # no Standard Greek rehearsal
+segments_dir: data/segments
+mode: lora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+learning_rate: 1.0e-4
+warmup_steps: 50
+max_steps: 1000
+batch_size: 4
+grad_accum: 4
+eval_batch_size: 8
+max_new_tokens: 512
+eval_steps: 250
+eval_subset: 150
+early_stopping_patience: 3
+seed: 42
+spec_augment: true
+mask_time_prob: 0.05
+mask_feature_prob: 0.05
+gradient_checkpointing: false

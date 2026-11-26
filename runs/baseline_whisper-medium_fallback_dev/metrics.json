@@ -1,0 +1,234 @@
+{
+  "n_utterances": 280,
+  "hours": 2.72516,
+  "empty_hypotheses": 0,
+  "hallucinations": 2,
+  "levels": {
+    "raw": {
+      "wer": 0.5707489631617467,
+      "cer": 0.22405409293626816,
+      "word_errors": 9358,
+      "ref_words": 16396,
+      "char_errors": 23361,
+      "ref_chars": 104265
+    },
+    "basic": {
+      "wer": 0.5026747720364741,
+      "cer": 0.19448305993565557,
+      "word_errors": 8269,
+      "ref_words": 16450,
+      "char_errors": 19586,
+      "ref_chars": 100708
+    },
+    "nofill": {
+      "wer": 0.49738477632145717,
+      "cer": 0.18860031026372417,
+      "word_errors": 8083,
+      "ref_words": 16251,
+      "char_errors": 18844,
+      "ref_chars": 99915
+    },
+    "nodiac": {
+      "wer": 0.48230878099809243,
+      "cer": 0.1642796455880568,
+      "word_errors": 7838,
+      "ref_words": 16251,
+      "char_errors": 16242,
+      "ref_chars": 98868
+    },
+    "phonetic": {
+      "wer": 0.4432957971817119,
+      "cer": 0.13995938892019177,
+      "word_errors": 7204,
+      "ref_words": 16251,
+      "char_errors": 13165,
+      "ref_chars": 94063
+    }
+  },
+  "per_speaker": {
+    "09a6b0dbc21a65d40c03998d62c04f8b": {
+      "n": 134,
+      "levels": {
+        "raw": {
+          "wer": 0.5352980195205155,
+          "cer": 0.19266532767983338,
+          "word_errors": 5649,
+          "ref_words": 10553,
+          "char_errors": 12950,
+          "ref_chars": 67215
+        },
+        "basic": {
+          "wer": 0.4916359512333428,
+          "cer": 0.17793767912677602,
+          "word_errors": 5202,
+          "ref_words": 10581,
+          "char_errors": 11672,
+          "ref_chars": 65596
+        },
+        "nofill": {
+          "wer": 0.49125460905738866,
+          "cer": 0.1778591033851784,
+          "word_errors": 5196,
+          "ref_words": 10577,
+          "char_errors": 11664,
+          "ref_chars": 65580
+        },
+        "nodiac": {
+          "wer": 0.477545617850052,
+          "cer": 0.15429425634545146,
+          "word_errors": 5051,
+          "ref_words": 10577,
+          "char_errors": 10012,
+          "ref_chars": 64889
+        },
+        "phonetic": {
+          "wer": 0.43991680060508653,
+          "cer": 0.13117271478218703,
+          "word_errors": 4653,
+          "ref_words": 10577,
+          "char_errors": 8115,
+          "ref_chars": 61865
+        }
+      }
+    },
+    "dda5993ca395e2fe2c2976259bad3327": {
+      "n": 146,
+      "levels": {
+        "raw": {
+          "wer": 0.6347766558274859,
+          "cer": 0.2809986504723347,
+          "word_errors": 3709,
+          "ref_words": 5843,
+          "char_errors": 10411,
+          "ref_chars": 37050
+        },
+        "basic": {
+          "wer": 0.5225762480831487,
+          "cer": 0.22539302802460698,
+          "word_errors": 3067,
+          "ref_words": 5869,
+          "char_errors": 7914,
+          "ref_chars": 35112
+        },
+        "nofill": {
+          "wer": 0.5088121254846669,
+          "cer": 0.2091160623270715,
+          "word_errors": 2887,
+          "ref_words": 5674,
+          "char_errors": 7180,
+          "ref_chars": 34335
+        },
+        "nodiac": {
+          "wer": 0.4911878745153331,
+          "cer": 0.18334853880337856,
+          "word_errors": 2787,
+          "ref_words": 5674,
+          "char_errors": 6230,
+          "ref_chars": 33979
+        },
+        "phonetic": {
+          "wer": 0.44959464222770534,
+          "cer": 0.15684203987825332,
+          "word_errors": 2551,
+          "ref_words": 5674,
+          "char_errors": 5050,
+          "ref_chars": 32198
+        }
+      }
+    }
+  },
+  "by_duration": {
+    "10-30s": {
+      "n": 128,
+      "levels": {
+        "raw": {
+          "wer": 0.5861999190611089,
+          "cer": 0.23988243273796067,
+          "word_errors": 2897,
+          "ref_words": 4942,
+          "char_errors": 7427,
+          "ref_chars": 30961
+        },
+        "basic": {
+          "wer": 0.5010076582023377,
+          "cer": 0.20180702582428697,
+          "word_errors": 2486,
+          "ref_words": 4962,
+          "char_errors": 5986,
+          "ref_chars": 29662
+        },
+        "nofill": {
+          "wer": 0.4911340206185567,
+          "cer": 0.19042891863211583,
+          "word_errors": 2382,
+          "ref_words": 4850,
+          "char_errors": 5563,
+          "ref_chars": 29213
+        },
+        "nodiac": {
+          "wer": 0.47649484536082476,
+          "cer": 0.16585973163646425,
+          "word_errors": 2311,
+          "ref_words": 4850,
+          "char_errors": 4796,
+          "ref_chars": 28916
+        },
+        "phonetic": {
+          "wer": 0.43608247422680413,
+          "cer": 0.14102050478930692,
+          "word_errors": 2115,
+          "ref_words": 4850,
+          "char_errors": 3872,
+          "ref_chars": 27457
+        }
+      }
+    },
+    ">30s": {
+      "n": 152,
+      "levels": {
+        "raw": {
+          "wer": 0.5640824166230138,
+          "cer": 0.2173687656880934,
+          "word_errors": 6461,
+          "ref_words": 11454,
+          "char_errors": 15934,
+          "ref_chars": 73304
+        },
+        "basic": {
+          "wer": 0.5033948467966574,
+          "cer": 0.19142527376629226,
+          "word_errors": 5783,
+          "ref_words": 11488,
+          "char_errors": 13600,
+          "ref_chars": 71046
+        },
+        "nofill": {
+          "wer": 0.5000438558021226,
+          "cer": 0.1878447568668496,
+          "word_errors": 5701,
+          "ref_words": 11401,
+          "char_errors": 13281,
+          "ref_chars": 70702
+        },
+        "nodiac": {
+          "wer": 0.4847820366634506,
+          "cer": 0.1636264867337603,
+          "word_errors": 5527,
+          "ref_words": 11401,
+          "char_errors": 11446,
+          "ref_chars": 69952
+        },
+        "phonetic": {
+          "wer": 0.44636435400403474,
+          "cer": 0.1395219649881392,
+          "word_errors": 5089,
+          "ref_words": 11401,
+          "char_errors": 9293,
+          "ref_chars": 66606
+        }
+      }
+    }
+  },
+  "model": "openai/whisper-medium",
+  "split": "dev"
+}

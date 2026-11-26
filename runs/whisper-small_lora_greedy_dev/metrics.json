@@ -1,0 +1,234 @@
+{
+  "n_utterances": 280,
+  "hours": 2.72516,
+  "empty_hypotheses": 0,
+  "hallucinations": 18,
+  "levels": {
+    "raw": {
+      "wer": 0.5310441571114906,
+      "cer": 0.2830959574161991,
+      "word_errors": 8707,
+      "ref_words": 16396,
+      "char_errors": 29517,
+      "ref_chars": 104265
+    },
+    "basic": {
+      "wer": 0.4056534954407295,
+      "cer": 0.24944393692655994,
+      "word_errors": 6673,
+      "ref_words": 16450,
+      "char_errors": 25121,
+      "ref_chars": 100708
+    },
+    "nofill": {
+      "wer": 0.39849855393514244,
+      "cer": 0.24462793374368214,
+      "word_errors": 6476,
+      "ref_words": 16251,
+      "char_errors": 24442,
+      "ref_chars": 99915
+    },
+    "nodiac": {
+      "wer": 0.3820687957664144,
+      "cer": 0.22766719262046364,
+      "word_errors": 6209,
+      "ref_words": 16251,
+      "char_errors": 22509,
+      "ref_chars": 98868
+    },
+    "phonetic": {
+      "wer": 0.3518552704448957,
+      "cer": 0.20316171076831485,
+      "word_errors": 5718,
+      "ref_words": 16251,
+      "char_errors": 19110,
+      "ref_chars": 94063
+    }
+  },
+  "per_speaker": {
+    "09a6b0dbc21a65d40c03998d62c04f8b": {
+      "n": 134,
+      "levels": {
+        "raw": {
+          "wer": 0.47995830569506304,
+          "cer": 0.23804210369709142,
+          "word_errors": 5065,
+          "ref_words": 10553,
+          "char_errors": 16000,
+          "ref_chars": 67215
+        },
+        "basic": {
+          "wer": 0.3865419147528589,
+          "cer": 0.2175132630038417,
+          "word_errors": 4090,
+          "ref_words": 10581,
+          "char_errors": 14268,
+          "ref_chars": 65596
+        },
+        "nofill": {
+          "wer": 0.3860262834452113,
+          "cer": 0.21732235437633424,
+          "word_errors": 4083,
+          "ref_words": 10577,
+          "char_errors": 14252,
+          "ref_chars": 65580
+        },
+        "nodiac": {
+          "wer": 0.3737354637420819,
+          "cer": 0.20128218958529182,
+          "word_errors": 3953,
+          "ref_words": 10577,
+          "char_errors": 13061,
+          "ref_chars": 64889
+        },
+        "phonetic": {
+          "wer": 0.3431975040181526,
+          "cer": 0.17819445566960318,
+          "word_errors": 3630,
+          "ref_words": 10577,
+          "char_errors": 11024,
+          "ref_chars": 61865
+        }
+      }
+    },
+    "dda5993ca395e2fe2c2976259bad3327": {
+      "n": 146,
+      "levels": {
+        "raw": {
+          "wer": 0.6233099435221633,
+          "cer": 0.36483130904183536,
+          "word_errors": 3642,
+          "ref_words": 5843,
+          "char_errors": 13517,
+          "ref_chars": 37050
+        },
+        "basic": {
+          "wer": 0.4401090475379111,
+          "cer": 0.3090966051492367,
+          "word_errors": 2583,
+          "ref_words": 5869,
+          "char_errors": 10853,
+          "ref_chars": 35112
+        },
+        "nofill": {
+          "wer": 0.4217483256961579,
+          "cer": 0.29678170962574635,
+          "word_errors": 2393,
+          "ref_words": 5674,
+          "char_errors": 10190,
+          "ref_chars": 34335
+        },
+        "nodiac": {
+          "wer": 0.3976031018681706,
+          "cer": 0.2780540922334383,
+          "word_errors": 2256,
+          "ref_words": 5674,
+          "char_errors": 9448,
+          "ref_chars": 33979
+        },
+        "phonetic": {
+          "wer": 0.3679943602396898,
+          "cer": 0.25113361078327845,
+          "word_errors": 2088,
+          "ref_words": 5674,
+          "char_errors": 8086,
+          "ref_chars": 32198
+        }
+      }
+    }
+  },
+  "by_duration": {
+    "10-30s": {
+      "n": 128,
+      "levels": {
+        "raw": {
+          "wer": 0.40509915014164305,
+          "cer": 0.1406931300668583,
+          "word_errors": 2002,
+          "ref_words": 4942,
+          "char_errors": 4356,
+          "ref_chars": 30961
+        },
+        "basic": {
+          "wer": 0.25957275292220877,
+          "cer": 0.09436315824961229,
+          "word_errors": 1288,
+          "ref_words": 4962,
+          "char_errors": 2799,
+          "ref_chars": 29662
+        },
+        "nofill": {
+          "wer": 0.2445360824742268,
+          "cer": 0.08342176428302468,
+          "word_errors": 1186,
+          "ref_words": 4850,
+          "char_errors": 2437,
+          "ref_chars": 29213
+        },
+        "nodiac": {
+          "wer": 0.22515463917525774,
+          "cer": 0.07165583068197538,
+          "word_errors": 1092,
+          "ref_words": 4850,
+          "char_errors": 2072,
+          "ref_chars": 28916
+        },
+        "phonetic": {
+          "wer": 0.19917525773195877,
+          "cer": 0.056597588957278656,
+          "word_errors": 966,
+          "ref_words": 4850,
+          "char_errors": 1554,
+          "ref_chars": 27457
+        }
+      }
+    },
+    ">30s": {
+      "n": 152,
+      "levels": {
+        "raw": {
+          "wer": 0.5853850183342064,
+          "cer": 0.343241842191422,
+          "word_errors": 6705,
+          "ref_words": 11454,
+          "char_errors": 25161,
+          "ref_chars": 73304
+        },
+        "basic": {
+          "wer": 0.46875,
+          "cer": 0.3141908059567041,
+          "word_errors": 5385,
+          "ref_words": 11488,
+          "char_errors": 22322,
+          "ref_chars": 71046
+        },
+        "nofill": {
+          "wer": 0.4639943864573283,
+          "cer": 0.3112358914882182,
+          "word_errors": 5290,
+          "ref_words": 11401,
+          "char_errors": 22005,
+          "ref_chars": 70702
+        },
+        "nodiac": {
+          "wer": 0.4488202789229015,
+          "cer": 0.29215747941445563,
+          "word_errors": 5117,
+          "ref_words": 11401,
+          "char_errors": 20437,
+          "ref_chars": 69952
+        },
+        "phonetic": {
+          "wer": 0.4168055433733883,
+          "cer": 0.26357985767048014,
+          "word_errors": 4752,
+          "ref_words": 11401,
+          "char_errors": 17556,
+          "ref_chars": 66606
+        }
+      }
+    }
+  },
+  "model": "/content/drive/MyDrive/cyasr/runs/finetune_whisper-small_lora/best",
+  "split": "dev"
+}

@@ -1,0 +1,19 @@
+# Fine-tuned Rumble-2-Flash (mix_tag, section 17) on the 280 full-length dev clips, evaluated like
+# eval_rumble-2-flash_lora.yaml (one pass per clip, greedy, batch 1), with the tag used in training.
+# Usage: python -m cyasr.run_baseline --config configs/eval_rumble-2-flash_mix_tag.yaml
+run_name: rumble-2-flash_mix_tag
+backend: qwen3_asr
+model: /content/drive/MyDrive/cyasr/runs/finetune_rumble-2-flash_mix_tag/best   # Colab path; elsewhere pass --model <folder>
+revision: null
+template_kwargs: {digits: false, filler: true, verbatim: true}
+prompt: "Cypriot Greek"
+splits: [dev]
+language: el
+decoding: greedy
+max_new_tokens: 4096
+dtype: auto
+batch_size: 1
+seed: 42
+max_samples: null
+output_dir: runs
+mlflow: false

@@ -1,0 +1,17 @@
+audio_dir: data/audios
+batch_size: 4
+decoding: fallback
+language: el
+long_form: sequential
+max_samples: 5
+mlflow: true
+model: openai/whisper-tiny
+num_beams: 1
+output_dir: runs
+run_name: baseline_whisper-tiny
+seed: 42
+split: dev
+splits:
+- dev
+task: transcribe
+tsv: data/ss-corpus-el-CY.tsv

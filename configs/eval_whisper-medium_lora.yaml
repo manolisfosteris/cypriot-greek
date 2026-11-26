@@ -1,0 +1,15 @@
+# Fine-tuned whisper-medium (LoRA, merged), evaluated exactly like small: full-length clips,
+# long-form decoding, same scoring. Decoding and no-speech rule are passed on the command line.
+# Usage: python -m cyasr.run_baseline --config configs/eval_whisper-medium_lora.yaml --decoding fallback --no-speech-threshold 0.6
+run_name: whisper-medium_lora
+model: /content/drive/MyDrive/cyasr/runs/finetune_whisper-medium_lora/best   # Colab path; elsewhere pass --model <folder>
+splits: [dev]            # test stays untouched until the final evaluation
+language: el
+task: transcribe
+num_beams: 1
+long_form: sequential
+batch_size: 8
+seed: 42
+max_samples: null
+output_dir: runs
+mlflow: false

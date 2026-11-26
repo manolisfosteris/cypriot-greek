@@ -1,0 +1,17 @@
+audio_dir: data/audios
+batch_size: 8
+decoding: fallback
+language: el
+long_form: sequential
+max_samples: null
+mlflow: false
+model: /content/drive/MyDrive/cyasr/runs/finetune_whisper-small_lora/best
+num_beams: 1
+output_dir: /content/drive/MyDrive/cyasr/runs
+run_name: whisper-small_lora
+seed: 42
+split: dev
+splits:
+- dev
+task: transcribe
+tsv: data/ss-corpus-el-CY.tsv

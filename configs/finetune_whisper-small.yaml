@@ -1,0 +1,21 @@
+run_name: whisper-small_lora
+model: openai/whisper-small
+segments_dir: data/segments
+mode: lora               # or: full, frozen_encoder
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+learning_rate: 1.0e-4    # LoRA; use ~1e-5 for full fine-tuning
+warmup_steps: 50
+max_steps: 1000          # ~20 epochs over 820 pieces; early stopping usually ends sooner
+batch_size: 8            # 16 ran out of memory on the T4 (>14.5 GB); 8 peaks at 11 GB
+grad_accum: 2            # 8 x 2 = effective batch 16, same update as batch 16
+eval_batch_size: 32      # dev evaluation only; no gradients, so a bigger batch fits
+eval_steps: 100
+early_stopping_patience: 3
+seed: 42
+timestamp_fraction: 0.5
+spec_augment: true
+mask_time_prob: 0.05
+mask_feature_prob: 0.05
+gradient_checkpointing: false

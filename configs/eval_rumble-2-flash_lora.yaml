@@ -1,0 +1,18 @@
+# Fine-tuned Rumble-2-Flash (LoRA, merged), evaluated exactly like the zero-shot run
+# (baseline_rumble-2-flash_matched.yaml): full-length dev clips in one pass, greedy, batch 1, same prompt options.
+# Usage: python -m cyasr.run_baseline --config configs/eval_rumble-2-flash_lora.yaml
+run_name: rumble-2-flash_lora
+backend: qwen3_asr
+model: /content/drive/MyDrive/cyasr/runs/finetune_rumble-2-flash_lora/best   # Colab path; elsewhere pass --model <folder>
+revision: null
+template_kwargs: {digits: false, filler: true, verbatim: true}
+splits: [dev]            # test stays untouched until the final evaluation
+language: el
+decoding: greedy
+max_new_tokens: 4096
+dtype: auto
+batch_size: 1            # deterministic (PROJECT_LOG section 10)
+seed: 42
+max_samples: null
+output_dir: runs
+mlflow: false
