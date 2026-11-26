@@ -1,21 +1,54 @@
-# cypriot-greek
+# cypriot-greek 🇨🇾 🇬🇷
 
-Speech recognition for Cypriot Greek, a Greek dialect with no standard spelling and very little transcribed audio.
-We fine-tuned [Reson8/Rumble-2-Flash](https://huggingface.co/Reson8/Rumble-2-Flash) (509M) and Whisper with LoRA
-on about 4.7 h of spontaneous speech from Common Voice. Every model was chosen on the dev split and then scored
-once on a test split of 3 speakers it had never heard. The best model reaches **24.7% WER on test**, down from
-55.7% zero-shot. Fine-tuning on Cypriot data alone breaks Standard Greek (FLEURS WER 14.1% → 39.4%). Mixing 30 min
-of Standard Greek into training brings that down to 29.6% and also gives the best Cypriot test score.
+How well do open-source speech recognition models understand Cypriot Greek, and how far can a few hours of data
+improve them? Zero-shot baselines, LoRA fine-tuning, and what fine-tuning does to Standard Greek.
 
-**About the base model.** Rumble-2-Flash is Reson8's speech recognition model, released in November 2026. Its
-model card names [Qwen3-ASR-0.6B](https://huggingface.co/Qwen/Qwen3-ASR-0.6B) (from Alibaba's Qwen team) as the base
-model. Comparing the two checkpoints' files shows that Rumble keeps Qwen's audio encoder architecture (18 layers)
-but has half the text decoder layers (14 instead of 28). Its vocabulary is cut from 151,643 to 99,562 tokens, with
-nothing new added. It also adds six control tokens for transcription options (digits, fillers, verbatim) and an
-extra CTC output head on the encoder. The training was more than pruning: zero-shot Greek WER on FLEURS drops from
-52.9% (Qwen) to 13.5% (Rumble) in our measurement on 100 clips. Reson8 does not publish how the model was trained, which decoder layers were kept,
-or how they were chosen. Details: [docs/tokenizer_diff.md](docs/tokenizer_diff.md) and PROJECT_LOG sections 10, 13
-and 15.
+## Why, and what I did
+
+I have always been intrigued by the Cypriot dialect. Many Greeks find it hard to follow, so I wanted to see how
+well state-of-the-art open-source speech recognition models understand it.
+
+**Data.** I used Mozilla Common Voice Spontaneous Speech, Cypriot Greek (el-CY) v5.0: 1,221 clips, 10.4 hours of
+spontaneous speech from 10 speakers, released under CC0. The corpus comes with speaker-disjoint splits (train 5
+speakers, dev 2, test 3). I made every decision on dev and scored the test set only once, at the end.
+
+**Zero-shot.** I started with OpenAI's Whisper in three sizes (small, medium, large-v3). The best reached 47% WER
+on dev. Much of the error is spelling: the models hear Cypriot but write it as Standard Greek (`τζαι` → `και`,
+"and").
+
+**Fine-tuning.** Next I fine-tuned whisper-small and whisper-medium with LoRA on about 4.7 h of training audio,
+cut into pieces of 30 s or less. whisper-medium went from 50.3% to 19.9% WER on dev.
+
+**Rumble-2-Flash.** Then I found Reson8's [Rumble-2-Flash](https://huggingface.co/Reson8/Rumble-2-Flash), which is
+built on Alibaba's [Qwen3-ASR-0.6B](https://huggingface.co/Qwen/Qwen3-ASR-0.6B). Comparing the two checkpoints'
+files, Rumble keeps Qwen's audio encoder but has half the decoder layers (14 instead of 28), which looks like
+depth pruning (removing whole layers). Its vocabulary is also trimmed, from 151,643 to 99,562 tokens. It was trained
+further as well: zero-shot, it is far better at Greek than Qwen (13.5% vs 52.9% WER on FLEURS Greek). The exact
+recipe is not published. With the same LoRA recipe, Rumble gave the best dev result, 17.3% (Qwen3-ASR-0.6B: 31.6%).
+It reads each clip in one pass, which avoids Whisper's habit of inventing text at the near-silent end of clips just
+over 30 s. Details: [docs/tokenizer_diff.md](docs/tokenizer_diff.md).
+
+**Forgetting Standard Greek.** I then checked whether the fine-tuned model could still transcribe Standard Greek.
+It got much worse: WER on FLEURS Greek rose from 14.1% to 39.4%, a clear case of catastrophic forgetting. About
+half of the increase is the model writing Standard Greek speech in Cypriot forms (`είναι` → `εν`, `κόσμο` →
+`κόσμον`).
+
+**Three attempts to fix it.**
+1. Blending the original and the fine-tuned weights (WiSE-FT) only moves along a trade-off: every blend gives up
+   part of the gain on one side or the other.
+2. Adding a "Cypriot Greek" tag to the prompt of the Cypriot training examples had no measurable effect, probably
+   because the audio already tells the model which variety it is hearing.
+3. Mixing 30 min of Standard Greek from Common Voice into training worked: FLEURS Greek WER came back down to 29.6%,
+   and Cypriot dev WER stayed about the same (17.9% vs 17.3%).
+
+**Test.** On the 3 unseen test speakers, fine-tuning more than halves the error. The model trained with Standard
+Greek is the best, at **24.7% WER** (zero-shot Rumble: 55.7%). Rumble's dev lead over whisper-medium did not hold on
+test: the fine-tuned models are statistically tied.
+
+**Next.** The Standard Greek data was a third of the training clips but only about 10% of the audio time. Adding
+more of it is the obvious next step to close the remaining gap on Standard Greek.
+
+All numbers, decisions and dead ends are in the experiment log, [docs/PROJECT_LOG.md](docs/PROJECT_LOG.md).
 
 ## Links
 
