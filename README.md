@@ -86,8 +86,10 @@ led on dev. Also tried, dev only: whisper-small (58.8% → 28.6%) and Qwen3-ASR-
 | + LoRA, Standard Greek rehearsal | 18.2% | 30.3% |
 | + LoRA, rehearsal + dialect tag (released model) | 17.9% | 29.6% |
 
-We also tried blending the original and fine-tuned weights (WiSE-FT, [figure](docs/figures/wiseft_tradeoff.png)).
-It trades one language against the other and does not fix both.
+We also tried blending the original and fine-tuned weights (WiSE-FT): W = W₀ + λ(W₁ − W₀), where λ = 0 is the
+zero-shot model and λ = 1 the Cypriot-only LoRA. It trades one language against the other and does not fix both:
+
+<p align="center"><img src="docs/figures/wiseft_tradeoff.png" alt="Cypriot dev WER against FLEURS Greek WER for blends from λ = 0 to λ = 1" width="520"></p>
 
 **Comparison with Stamou et al. (2026).** They report 33.93% (whisper-large-v3) and 37.85% (whisper-medium). Their
 numbers come from an earlier corpus version, a random split that is not speaker-independent, segments of 30 s or
