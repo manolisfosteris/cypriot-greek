@@ -52,7 +52,7 @@ All numbers, decisions and dead ends are in the experiment log, [docs/PROJECT_LO
 
 ## Links
 
-- Model weights: TODO (Hugging Face upload pending)
+- Model weights: [manolisfosteris/rumble-2-flash-cypriot-greek](https://huggingface.co/manolisfosteris/rumble-2-flash-cypriot-greek) (Apache-2.0)
 - Dataset: [Common Voice Spontaneous Speech, Cypriot Greek (el-CY) v5.0](https://mozilladatacollective.com), CC0
 - Rehearsal data: Common Voice Scripted Speech, Greek (el) 27.0, CC0, same site
 - Baseline paper: [Stamou et al. 2026, First Steps in ASR for Cypriot Greek](https://aclanthology.org/2026.dialres-1.30/)
@@ -110,7 +110,7 @@ from cyasr.data import load_audio
 from cyasr.transcribe_qwen import QwenTranscriber
 
 asr = QwenTranscriber(
-    "TODO/hub-id-of-the-released-model",   # or a local folder, e.g. runs/finetune_rumble-2-flash_mix_tag/best
+    "manolisfosteris/rumble-2-flash-cypriot-greek",   # or a local folder, e.g. runs/finetune_rumble-2-flash_mix_tag/best
     language="el",
     batch_size=1,
     template_kwargs={"digits": False, "filler": True, "verbatim": True},
